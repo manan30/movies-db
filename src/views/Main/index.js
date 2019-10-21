@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-import Get from '../api/Get';
+import HeaderBar from '../../components/HeaderBar';
+
+import Get from '../../api/Get';
+
+import { HeaderSection } from './styled';
 
 function Main() {
   const [movies, setMovies] = useState([]);
@@ -17,7 +21,10 @@ function Main() {
   }, []);
 
   return (
-    <div>
+    <>
+      <HeaderSection>
+        <HeaderBar title='Movies Database' />
+      </HeaderSection>
       {movies.map(movie => {
         return (
           <>
@@ -26,7 +33,7 @@ function Main() {
           </>
         );
       })}
-    </div>
+    </>
   );
 }
 
