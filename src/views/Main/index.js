@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 import HeaderBar from '../../components/HeaderBar';
+import MoviesGrid from '../../components/Grid';
 
 import Get from '../../api/Get';
 
-import { HeaderSection } from './styled';
+import { HeaderSection, MoviesGridSection } from './styled';
 
 function Main() {
   const [movies, setMovies] = useState([]);
@@ -25,14 +26,9 @@ function Main() {
       <HeaderSection>
         <HeaderBar title='Movies Database' />
       </HeaderSection>
-      {movies.map(movie => {
-        return (
-          <>
-            <span>{movie.title}</span>
-            <br />
-          </>
-        );
-      })}
+      <MoviesGridSection>
+        <MoviesGrid items={movies} />
+      </MoviesGridSection>
     </>
   );
 }
