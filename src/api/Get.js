@@ -1,10 +1,10 @@
 import axios from 'axios';
 import Constants from '../utils/Constants';
 
-const popularMovies = () => {
+const movies = type => {
   return axios.get(
-    `${Constants.REQUEST_URL}/movie/popular?api_key=${Constants.API_KEY}`
+    `${Constants.REQUEST_URL}/movie/${type}?api_key=${Constants.API_KEY}`
   );
 };
 
-export default { popularMovies };
+export default { movies };
