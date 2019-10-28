@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import {
   SideBarTitle,
@@ -43,4 +44,11 @@ function SideBar({ handler }) {
   );
 }
 
+SideBar.propTypes = {
+  handler: PropTypes.func
+};
+
+SideBar.defaultProps = {
+  handler: () => {}
+};
 export default SideBar;

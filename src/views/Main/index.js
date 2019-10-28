@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 // import HeaderBar from '../../components/HeaderBar';
-// import MoviesGrid from '../../components/Grid';
+import MoviesGrid from '../../components/Grid';
 
 import Get from '../../api/Get';
 
@@ -15,15 +15,18 @@ import SideBar from '../../components/SideBar';
 
 function Main() {
   const [movies, setMovies] = useState({});
+  const [movieType, setMovieType] = useState();
 
   useEffect(() => {
     try {
       (async () => {
         const popularMovies = await Get.movies('popular');
         setMovies(state => {
-          state.popular = popularMovies.data.results;
-          return state;
+          const newState = { ...state };
+          newState.popular = popularMovies.data.results;
+          return newState;
         });
+        setMovieType('popular');
       })();
     } catch (e) {
       console.log({ e });
@@ -45,6 +48,7 @@ function Main() {
         return newState;
       });
     }
+    setMovieType(type);
   };
 
   return (
@@ -52,10 +56,9 @@ function Main() {
       <SideBarSection>
         <SideBar handler={fetch} />
       </SideBarSection>
-      <MoviesGridSection />
-      {/* <HeaderSection>
-        <HeaderBar title='Movies Database' />
-      </HeaderSection> */}
+      <MoviesGridSection>
+        <MoviesGrid items={movies[movieType]} />
+      </MoviesGridSection>
     </RootContainer>
   );
 }
