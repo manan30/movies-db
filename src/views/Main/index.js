@@ -5,7 +5,13 @@ import MoviesGrid from '../../components/Grid';
 
 import Get from '../../api/Get';
 
-import { HeaderSection, MoviesGridSection } from './styled';
+import {
+  HeaderSection,
+  MoviesGridSection,
+  SideBarSection,
+  RootContainer
+} from './styled';
+import SideBar from '../../components/SideBar';
 
 function Main() {
   const [movies, setMovies] = useState([]);
@@ -17,19 +23,20 @@ function Main() {
         setMovies(popularMovies.data.results);
       })();
     } catch (e) {
-      console.log(e);
+      console.log({ e });
     }
   }, []);
 
   return (
-    <>
-      <HeaderSection>
+    <RootContainer>
+      <SideBarSection>
+        <SideBar />
+      </SideBarSection>
+      <MoviesGridSection />
+      {/* <HeaderSection>
         <HeaderBar title='Movies Database' />
-      </HeaderSection>
-      <MoviesGridSection>
-        <MoviesGrid items={movies} />
-      </MoviesGridSection>
-    </>
+      </HeaderSection> */}
+    </RootContainer>
   );
 }
 

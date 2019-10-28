@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+const RootContainer = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: inline-flex;
+`;
+const SideBarSection = styled.section`
+  width: 20%;
+  background-color: white;
+  box-shadow: 3px 0 15px #e5e9f0;
+`;
+
 const HeaderSection = styled.section`
   height: 48px;
 `;
@@ -7,11 +18,15 @@ const HeaderSection = styled.section`
 const SearchBarSection = styled.section``;
 
 const MoviesGridSection = styled.section`
-  height: calc(100vh - 88px);
-  width: calc(100% - 40px);
+  width: calc(80% - 40px);
   padding: 20px;
-  background: black;
   overflow-y: scroll;
 `;
 
-export { HeaderSection, MoviesGridSection };
+export {
+  RootContainer,
+  SideBarSection,
+  HeaderSection,
+  SearchBarSection,
+  MoviesGridSection
+};

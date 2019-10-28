@@ -5,12 +5,21 @@ import GridItem from '../Item';
 
 import GridContainer from './styled';
 
+import Constants from '../../utils/Constants';
+
 function Grid({ items }) {
   return (
     <GridContainer>
-      {items.map(item => (
-        <GridItem title={item.title} />
-      ))}
+      {items.map((item, i) => {
+        const idx = i;
+        return (
+          <GridItem
+            key={idx}
+            title={item.title}
+            image={`${Constants.IMAGE_URL}/${item.poster_path}`}
+          />
+        );
+      })}
     </GridContainer>
   );
 }
