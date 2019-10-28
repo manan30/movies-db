@@ -15,27 +15,15 @@ function SideBar() {
     new Array(Constants.SideBarItems.length).fill(false)
   );
 
-  const customizeToggle = (array, i) => {
-    console.log(i);
-    if (i === 0) return [true, ...new Array(array.length - 1).fill(false)];
-
-    if (i === array.length - 1)
-      return [...new Array(array.length - 1).fill(false), true];
-
-    return [
-      ...new Array(i).fill(false),
-      true,
-      ...new Array(array.length - 1 - i).fill(false)
-    ];
-  };
-
   return (
     <div>
       {Constants.SideBarItems.map((val, i) => (
         <SideBarItem>
           <ItemContainer
             onClick={() => {
-              setToggleStatus(customizeToggle(toggleStatus, i));
+              setToggleStatus(status => {
+                return status.map((s, idx) => i === idx);
+              });
             }}>
             <ItemActiveTick />
             <ItemIcon />
