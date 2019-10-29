@@ -3,7 +3,6 @@ const REQUEST_URL = 'https://api.themoviedb.org/3';
 const IMAGE_URL = 'https://image.tmdb.org/t/p/original';
 
 const SideBarItems = [
-  { icon: '', text: 'Latest' },
   { icon: '', text: 'Now Playing' },
   { icon: '', text: 'Popular' },
   { icon: '', text: 'Top Rated' },

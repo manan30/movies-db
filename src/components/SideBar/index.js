@@ -13,9 +13,10 @@ import {
 import Constants from '../../utils/Constants';
 
 function SideBar({ handler }) {
-  const [toggleStatus, setToggleStatus] = useState(
-    new Array(Constants.SideBarItems.length).fill(false)
-  );
+  const [toggleStatus, setToggleStatus] = useState([
+    true,
+    ...new Array(Constants.SideBarItems.length - 1).fill(false)
+  ]);
 
   return (
     <>

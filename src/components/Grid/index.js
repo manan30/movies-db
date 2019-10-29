@@ -17,6 +17,8 @@ function Grid({ items }) {
             key={idx}
             title={item.title}
             image={`${Constants.IMAGE_URL}/${item.poster_path}`}
+            overview={item.overview}
+            ratings={item.vote_average}
           />
         );
       })}
