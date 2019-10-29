@@ -3,23 +3,30 @@ name: React build
 on:
   push:
     branches:
-      - feature/*
+      - develop
 
 jobs:
-  build:
-    name: install & build
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@develop
+
       - name: node setup
-      - uses: actions/setup-node@v1
+        uses: actions/setup-node@v1
         with:
           node-version: 12.x
+
       - name: install
-        run: |
-          npm install
+        run: npm install
+
       - name: build
-        run: |
-          npm run build --if-present
+        run: npm run build
         env:
           CI: false
+
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v2.5.0
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./build
