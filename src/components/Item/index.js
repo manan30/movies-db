@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ItemContainer, ItemImage, ItemTitle } from './styled';
+import { Container, Image, Title } from './styled';
 
 function Item({ image, title, poster }) {
   return (
-    <ItemContainer>
-      <ItemImage image={image} />
-      <ItemTitle>{title}</ItemTitle>
-    </ItemContainer>
+    <Container>
+      <Image image={image} />
+      <Title>{title}</Title>
+    </Container>
   );
 }
 
