@@ -1,7 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Content, Image, Text, FAB, Separator } from './styled';
+import {
+  Container,
+  Content,
+  Image,
+  Text,
+  FAB,
+  Separator,
+  Button
+} from './styled';
 
 function Item({ image, title, overview, ratings }) {
   return (
@@ -14,6 +22,7 @@ function Item({ image, title, overview, ratings }) {
         </Text>
         <FAB>{ratings}</FAB>
         <Separator />
+        <Button>Details</Button>
       </Content>
     </Container>
   );

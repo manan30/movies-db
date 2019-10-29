@@ -74,7 +74,6 @@ const FAB = styled.div`
   box-shadow: 4px 4px 10px #c9d8db;
   background-color: #2879ff;
 
-  /* text-align: center; */
   align-items: center;
   justify-content: center;
   font-size: 14px;
@@ -84,9 +83,10 @@ const FAB = styled.div`
 const Separator = styled.hr`
   position: relative;
   height: 2px;
-  margin: 0 10px;
+  margin: 10px;
   background: #f2f4f8;
   border: none;
+
   ::before {
     content: '';
     text-align: left;
@@ -100,6 +100,7 @@ const Separator = styled.hr`
       rgba(255, 255, 255, 1) 50%
     );
   }
+
   ::after {
     content: '';
     text-align: right;
@@ -116,4 +117,28 @@ const Separator = styled.hr`
   }
 `;
 
-export { Container, Content, Image, Text, FAB, Separator };
+const Button = styled.div`
+  display: flex;
+  width: 64px;
+  padding: 5px;
+  margin-right: 5px;
+  float: right;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 12px;
+
+  border-radius: 10px;
+  border: 2px solid #2879ff;
+  color: #2879ff;
+
+  cursor: pointer;
+
+  :hover {
+    background: #2879ff;
+    color: white;
+    box-shadow: 2px 0 7px #c9d8db;
+  }
+`;
+
+export { Container, Content, Image, Text, FAB, Separator, Button };
