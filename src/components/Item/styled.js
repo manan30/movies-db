@@ -36,7 +36,7 @@ const Content = styled.div`
 `;
 
 const Text = styled.div`
-  position: ${props => props.position && 'relative'};
+  position: relative;
   margin-bottom: 15px;
   height: ${props => props.height && '3.6em'};
 
@@ -52,7 +52,7 @@ const Text = styled.div`
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 40%;
+    width: ${props => (props.relative && '0') || '40%'};
     height: 1.2em;
     background: linear-gradient(
       to right,
@@ -83,38 +83,9 @@ const FAB = styled.div`
 const Separator = styled.hr`
   position: relative;
   height: 2px;
-  margin: 10px;
+  margin: 10px 0;
   background: #f2f4f8;
   border: none;
-
-  ::before {
-    content: '';
-    text-align: left;
-    position: absolute;
-    left: 0;
-    width: 5%;
-    height: 2px;
-    background: linear-gradient(
-      to left,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 1) 50%
-    );
-  }
-
-  ::after {
-    content: '';
-    text-align: right;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 5%;
-    height: 2px;
-    background: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 1) 50%
-    );
-  }
 `;
 
 const Button = styled.div`

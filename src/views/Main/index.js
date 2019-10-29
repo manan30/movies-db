@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-// import HeaderBar from '../../components/HeaderBar';
 import MoviesGrid from '../../components/Grid';
 
 import Get from '../../api/Get';
@@ -20,13 +19,13 @@ function Main() {
   useEffect(() => {
     try {
       (async () => {
-        const popularMovies = await Get.movies('popular');
+        const popularMovies = await Get.movies('now_playing');
         setMovies(state => {
           const newState = { ...state };
-          newState.popular = popularMovies.data.results;
+          newState.now_playing = popularMovies.data.results;
           return newState;
         });
-        setMovieType('popular');
+        setMovieType('now_playing');
       })();
     } catch (e) {
       console.log({ e });

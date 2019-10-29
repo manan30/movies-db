@@ -16,8 +16,10 @@ function Item({ image, title, overview, ratings }) {
     <Container>
       <Image image={image} />
       <Content>
-        <Text weight='bolder'>{title}</Text>
-        <Text color='#BFC0CE' height position>
+        <Text weight='bolder' relative>
+          {title}
+        </Text>
+        <Text color='#BFC0CE' height>
           {overview}
         </Text>
         <FAB>{ratings}</FAB>
