@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: inline-flex;
-  height: 200px;
+  height: 150px;
   width: 300px;
   margin-top: 16px;
   margin-bottom: 20px;
@@ -16,7 +16,7 @@ const Container = styled.div`
 
 const Image = styled.div`
   height: 128px;
-  width: 80px;
+  width: 90px;
   margin-top: -32px;
 
   background-color: white;
@@ -27,14 +27,39 @@ const Image = styled.div`
   box-shadow: 3px 2px 4px #dbdee3;
 `;
 
-const Title = styled.span`
+const Content = styled.div`
+  height: 100%;
+  width: 100%;
   margin-left: 20px;
   margin-top: 5px;
   margin-bottom: 15px;
-
-  font-size: 16px;
-  font-weight: bold;
-  color: #9d9fb0;
 `;
 
-export { Container, Image, Title };
+const Text = styled.div`
+  position: ${props => props.position && 'relative'};
+  margin-bottom: 15px;
+  height: ${props => props.height && '3.6em'};
+
+  font-size: ${props => (props.size && props.size) || '16px'};
+  font-weight: ${props => (props.weight && props.weight) || ''};
+  color: ${props => (props.color && props.color) || '#9D9FB0'};
+
+  overflow: hidden;
+
+  ::after {
+    content: '';
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40%;
+    height: 1.2em;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 1) 50%
+    );
+  }
+`;
+
+export { Container, Content, Image, Text };
