@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Content, Image, Text } from './styled';
+import { Container, Content, Image, Text, FAB, Separator } from './styled';
 
 function Item({ image, title, overview, ratings }) {
   return (
@@ -12,6 +12,8 @@ function Item({ image, title, overview, ratings }) {
         <Text color='#BFC0CE' height position>
           {overview}
         </Text>
+        <FAB>{ratings}</FAB>
+        <Separator />
       </Content>
     </Container>
   );

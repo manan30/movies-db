@@ -19,12 +19,6 @@ function Grid({ items }) {
             image={`${Constants.IMAGE_URL}/${item.poster_path}`}
             overview={item.overview}
             ratings={item.vote_average}
-            // genre={item.genres.reduce((acc, curr, id) => {
-            //   acc
-            //     .concat(curr.name)
-            //     .concat(id !== item.genres.length ? ', ' : '');
-            //   return acc;
-            // }, '')}
           />
         );
       })}

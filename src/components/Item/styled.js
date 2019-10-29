@@ -62,4 +62,58 @@ const Text = styled.div`
   }
 `;
 
-export { Container, Content, Image, Text };
+const FAB = styled.div`
+  display: flex;
+  height: 48px;
+  width: 48px;
+  margin-top: -150px;
+  border-radius: 50%;
+  float: right;
+
+  color: white;
+  box-shadow: 4px 4px 10px #c9d8db;
+  background-color: #2879ff;
+
+  /* text-align: center; */
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+`;
+
+const Separator = styled.hr`
+  position: relative;
+  height: 2px;
+  margin: 0 10px;
+  background: #f2f4f8;
+  border: none;
+  ::before {
+    content: '';
+    text-align: left;
+    position: absolute;
+    left: 0;
+    width: 5%;
+    height: 2px;
+    background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 1) 50%
+    );
+  }
+  ::after {
+    content: '';
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 5%;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 1) 50%
+    );
+  }
+`;
+
+export { Container, Content, Image, Text, FAB, Separator };
