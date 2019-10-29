@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { ItemContainer, ItemImage, ItemTitle } from './styled';
 
-function Item({ image, title }) {
+function Item({ image, title, poster }) {
   return (
     <ItemContainer>
       <ItemImage image={image} />
