@@ -52,6 +52,10 @@ function Main() {
     setMovieType(type);
   };
 
+  const performSearch = e => {
+    console.log(e);
+  };
+
   return (
     <RootContainer>
       <SideBarSection>
@@ -59,7 +63,7 @@ function Main() {
       </SideBarSection>
       <ContentSection>
         <SearchBarSection>
-          <Search />
+          <Search handler={performSearch} />
         </SearchBarSection>
         <MoviesGridSection>
           <MoviesGrid items={movies[movieType]} />
