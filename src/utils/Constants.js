@@ -13,4 +13,13 @@ const SideBarItems = [
   { icon: <MdQueue />, text: 'Upcoming' }
 ];
 
-export default { API_KEY, REQUEST_URL, IMAGE_URL, SideBarItems };
+const FuseOptions = {
+  shouldSort: true,
+  threshold: 0.4,
+  location: 0,
+  distance: 50,
+  maxPatternLength: 12,
+  minMatchCharLength: 3
+};
+
+export default { API_KEY, REQUEST_URL, IMAGE_URL, SideBarItems, FuseOptions };

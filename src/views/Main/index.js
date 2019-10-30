@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 import SideBar from '../../components/SideBar';
+import Search from '../../components/SearchBar';
 import MoviesGrid from '../../components/Grid';
 
 import Get from '../../api/Get';
+import Constants from '../../utils/Constants';
+import useSearch from '../../hooks/useSearch';
 
 import {
   RootContainer,
@@ -12,7 +15,8 @@ import {
   MoviesGridSection,
   SearchBarSection
 } from './styled';
-import Search from '../../components/SearchBar';
+
+Constants.FuseOptions.keys = ['title'];
 
 function Main() {
   const [movies, setMovies] = useState({});
@@ -52,9 +56,10 @@ function Main() {
     setMovieType(type);
   };
 
-  const performSearch = e => {
-    console.log(e);
-  };
+  const { results, search, searchTerm } = useSearch({
+    data: movies[movieType],
+    options: Constants.FuseOptions
+  });
 
   return (
     <RootContainer>
@@ -63,10 +68,10 @@ function Main() {
       </SideBarSection>
       <ContentSection>
         <SearchBarSection>
-          <Search handler={performSearch} />
+          <Search handler={e => search(e.target.value)} value={searchTerm} />
         </SearchBarSection>
         <MoviesGridSection>
-          <MoviesGrid items={movies[movieType]} />
+          <MoviesGrid items={results} />
         </MoviesGridSection>
       </ContentSection>
     </RootContainer>
