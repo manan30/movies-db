@@ -34,9 +34,15 @@ const ItemIcon = styled.div`
   width: 24px;
   height: 24px;
   margin: 0 15px;
-  background-image: url(${props => props.icon && props.icon});
   background-position: center center;
   background-repeat: no-repeat;
+
+  color: ${props => (props.color ? props.color : '#DEE1E7')};
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 const ItemText = styled.span`

@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
+import SideBar from '../../components/SideBar';
 import MoviesGrid from '../../components/Grid';
 
 import Get from '../../api/Get';
 
 import {
-  // HeaderSection,
-  MoviesGridSection,
+  RootContainer,
   SideBarSection,
-  RootContainer
+  ContentSection,
+  MoviesGridSection,
+  SearchBarSection
 } from './styled';
-import SideBar from '../../components/SideBar';
+import Search from '../../components/SearchBar';
 
 function Main() {
   const [movies, setMovies] = useState({});
@@ -55,9 +57,14 @@ function Main() {
       <SideBarSection>
         <SideBar handler={fetch} />
       </SideBarSection>
-      <MoviesGridSection>
-        <MoviesGrid items={movies[movieType]} />
-      </MoviesGridSection>
+      <ContentSection>
+        <SearchBarSection>
+          <Search />
+        </SearchBarSection>
+        <MoviesGridSection>
+          <MoviesGrid items={movies[movieType]} />
+        </MoviesGridSection>
+      </ContentSection>
     </RootContainer>
   );
 }

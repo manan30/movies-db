@@ -3,11 +3,10 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: inline-flex;
   height: 150px;
-  width: 300px;
+  width: calc(50% - 45px);
   margin-top: 16px;
   margin-bottom: 20px;
   margin-right: 15px;
-  flex-grow: 1;
   padding: 15px;
 
   background: white;
