@@ -11,14 +11,21 @@ const SideBarSection = styled.section`
   box-shadow: 3px 0 15px #e5e9f0;
 `;
 
-const HeaderSection = styled.section`
-  height: 48px;
+const ContentSection = styled.div`
+  height: 100%;
+  width: 100%;
 `;
 
-const SearchBarSection = styled.section``;
+const SearchBarSection = styled.section`
+  height: 38px;
+  width: 256px;
+  margin: 10px 0;
+  padding: 0 20px;
+`;
 
 const MoviesGridSection = styled.section`
-  width: calc(80% - 40px);
+  height: calc(100% - 88px);
+  width: calc(100% - 28px);
   padding: 20px;
   overflow-y: scroll;
 `;
@@ -26,7 +33,7 @@ const MoviesGridSection = styled.section`
 export {
   RootContainer,
   SideBarSection,
-  HeaderSection,
+  ContentSection,
   SearchBarSection,
   MoviesGridSection
 };

@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
 
+import SideBar from '../../components/SideBar';
+import Search from '../../components/SearchBar';
 import MoviesGrid from '../../components/Grid';
 
 import Get from '../../api/Get';
+import Constants from '../../utils/Constants';
+import useSearch from '../../hooks/useSearch';
 
 import {
-  // HeaderSection,
-  MoviesGridSection,
+  RootContainer,
   SideBarSection,
-  RootContainer
+  ContentSection,
+  MoviesGridSection,
+  SearchBarSection
 } from './styled';
-import SideBar from '../../components/SideBar';
+
+Constants.FuseOptions.keys = ['title'];
 
 function Main() {
   const [movies, setMovies] = useState({});
@@ -50,14 +56,24 @@ function Main() {
     setMovieType(type);
   };
 
+  const { results, search, searchTerm } = useSearch({
+    data: movies[movieType],
+    options: Constants.FuseOptions
+  });
+
   return (
     <RootContainer>
       <SideBarSection>
         <SideBar handler={fetch} />
       </SideBarSection>
-      <MoviesGridSection>
-        <MoviesGrid items={movies[movieType]} />
-      </MoviesGridSection>
+      <ContentSection>
+        <SearchBarSection>
+          <Search handler={e => search(e.target.value)} value={searchTerm} />
+        </SearchBarSection>
+        <MoviesGridSection>
+          <MoviesGrid items={results} />
+        </MoviesGridSection>
+      </ContentSection>
     </RootContainer>
   );
 }
