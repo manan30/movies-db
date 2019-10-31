@@ -37,7 +37,7 @@ const Content = styled.div`
 const Text = styled.div`
   position: relative;
   margin-bottom: 15px;
-  height: ${props => props.height && '3.6em'};
+  height: ${props => props.height && props.height};
 
   font-size: ${props => (props.size && props.size) || '16px'};
   font-weight: ${props => (props.weight && props.weight) || ''};

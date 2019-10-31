@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 import SideBar from '../../components/SideBar';
 import Search from '../../components/SearchBar';
@@ -22,7 +21,6 @@ Constants.FuseOptions.keys = ['title'];
 function Main() {
   const [movies, setMovies] = useState({});
   const [movieType, setMovieType] = useState();
-  const [movieID, setMovieID] = useState();
 
   useEffect(() => {
     try {

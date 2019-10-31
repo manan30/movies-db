@@ -20,7 +20,7 @@ function Item({ id, image, title, overview, ratings }) {
         <Text weight='bolder' relative>
           {title}
         </Text>
-        <Text color='#BFC0CE' height>
+        <Text color='#BFC0CE' height='3.6em'>
           {overview}
         </Text>
         <FAB>{ratings}</FAB>
@@ -38,7 +38,7 @@ Item.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
   overview: PropTypes.string,
-  ratings: PropTypes.string
+  ratings: PropTypes.number
 };
 
 Item.defaultProps = {
