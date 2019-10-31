@@ -15,6 +15,7 @@ function Grid({ items }) {
         return (
           <GridItem
             key={idx}
+            id={item.id}
             title={item.title}
             image={`${Constants.IMAGE_URL}/${item.poster_path}`}
             overview={item.overview}

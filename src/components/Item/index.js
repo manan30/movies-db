@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import {
   Container,
@@ -11,7 +12,7 @@ import {
   Button
 } from './styled';
 
-function Item({ image, title, overview, ratings }) {
+function Item({ id, image, title, overview, ratings }) {
   return (
     <Container>
       <Image image={image} />
@@ -24,13 +25,16 @@ function Item({ image, title, overview, ratings }) {
         </Text>
         <FAB>{ratings}</FAB>
         <Separator />
-        <Button>Details</Button>
+        <Link to={{ pathname: `/details/${id}` }}>
+          <Button>Details</Button>
+        </Link>
       </Content>
     </Container>
   );
 }
 
 Item.propTypes = {
+  id: PropTypes.number,
   image: PropTypes.string,
   title: PropTypes.string,
   overview: PropTypes.string,
@@ -38,6 +42,7 @@ Item.propTypes = {
 };
 
 Item.defaultProps = {
+  id: '',
   image: '',
   title: '',
   overview: '',
