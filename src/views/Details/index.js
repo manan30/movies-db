@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { MdArrowBack } from 'react-icons/md';
 
 import Get from '../../api/Get';
+import Constants from '../../utils/Constants';
+
+import { MovieBackdropSection, BackButton } from './styled';
 
 function Details() {
   const { id } = useParams();
-  const [, setMovieDetails] = useState({});
+  const [movieDetails, setMovieDetails] = useState({});
 
   useEffect(() => {
     try {
@@ -18,7 +22,16 @@ function Details() {
     }
   }, [id]);
 
-  return <div />;
+  return (
+    <>
+      <BackButton>
+        <MdArrowBack />
+      </BackButton>
+      <MovieBackdropSection
+        image={`${Constants.IMAGE_URL}${movieDetails.backdrop_path}`}
+      />
+    </>
+  );
 }
 
 export default Details;
