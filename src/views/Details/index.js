@@ -5,7 +5,14 @@ import { MdArrowBack } from 'react-icons/md';
 import Get from '../../api/Get';
 import Constants from '../../utils/Constants';
 
-import { MovieBackdropSection, BackButton } from './styled';
+import {
+  MovieBackdropSection,
+  BackButton,
+  DetailsContainer,
+  MovieImage,
+  TextContainer,
+  Text
+} from './styled';
 
 function Details() {
   const { id } = useParams();
@@ -24,12 +31,20 @@ function Details() {
 
   return (
     <>
-      <BackButton>
-        <MdArrowBack />
-      </BackButton>
       <MovieBackdropSection
         image={`${Constants.IMAGE_URL}${movieDetails.backdrop_path}`}
       />
+      <BackButton>
+        <MdArrowBack />
+      </BackButton>
+      <DetailsContainer>
+        <MovieImage
+          image={`${Constants.IMAGE_URL}${movieDetails.poster_path}`}
+        />
+        <TextContainer>
+          <Text>{movieDetails.title}</Text>
+        </TextContainer>
+      </DetailsContainer>
     </>
   );
 }
