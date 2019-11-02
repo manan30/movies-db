@@ -45,7 +45,6 @@ const DetailsContainer = styled.div`
 `;
 
 const MovieImage = styled.div`
-  display: inline-flex;
   height: 256px;
   width: 180px;
   margin-top: -150px;
@@ -60,15 +59,42 @@ const MovieImage = styled.div`
 `;
 
 const TextContainer = styled.div`
-  height: 100%;
-  width: calc(100% - 60px);
-  margin-left: 30px;
+  position: ${props => (props.position && props.position) || ''};
+  top: ${props => props.top && props.top};
+  height: ${props => (props.height && props.height) || '100%'};
+  width: ${props => (props.width && props.width) || '100%'};
+  margin-left: ${props => (props.marginLeft && props.marginLeft) || '0'};
+  padding: ${props => props.padding && props.padding};
 `;
 
 const Text = styled.div`
+  width: ${props => (props.width && props.width) || '100%'};
+  margin-bottom: ${props => (props.bottom && props.bottom) || '16px'};
+
   font-size: ${props => (props.size && props.size) || '16px'};
   font-weight: ${props => (props.weight && props.weight) || ''};
   color: ${props => (props.color && props.color) || '#9D9FB0'};
+`;
+
+const CarouselContainer = styled.div`
+  position: absolute;
+  top: ${props => props.top && props.top};
+  height: 200px;
+  width: calc(100% - 80px);
+  background: red;
+`;
+
+const CarouselItem = styled.div`
+  display: inline-flex;
+  height: 100%;
+  width: 128px;
+  flex-wrap: nowrap;
+  margin-right: 15px;
+
+  background: url(${props => props.image && props.image});
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
 `;
 
 export {
@@ -77,5 +103,7 @@ export {
   DetailsContainer,
   MovieImage,
   TextContainer,
-  Text
+  Text,
+  CarouselContainer,
+  CarouselItem
 };

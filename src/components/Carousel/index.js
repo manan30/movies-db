@@ -1,8 +1,8 @@
 import React from 'react';
 import { CarouselContainer } from './styled';
 
-function Carousel() {
-  return <CarouselContainer />;
+function Carousel({ children }) {
+  return <CarouselContainer>{children}</CarouselContainer>;
 }
 
 export default Carousel;

@@ -13,4 +13,10 @@ const movieDetails = id => {
   );
 };
 
-export default { movies, movieDetails };
+const similar = id => {
+  return axios.get(
+    `${Constants.REQUEST_URL}/movie/${id}/similar?api_key=${Constants.API_KEY}&language=en-US`
+  );
+};
+
+export default { movies, movieDetails, similar };
