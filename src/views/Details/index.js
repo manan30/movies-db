@@ -22,6 +22,7 @@ function Details() {
   const { id } = useParams();
   const [movieDetails, setMovieDetails] = useState({});
   const [similar, setSimilar] = useState([]);
+  const [recommended, setRecommended] = useState([]);
 
   useEffect(() => {
     try {
@@ -39,6 +40,17 @@ function Details() {
       (async () => {
         const results = await Get.similar(id);
         setSimilar(results.data.results);
+      })();
+    } catch (e) {
+      console.error({ e });
+    }
+  }, [id]);
+
+  useEffect(() => {
+    try {
+      (async () => {
+        const results = await Get.recommended(id);
+        setRecommended(results.data.results);
       })();
     } catch (e) {
       console.error({ e });
@@ -91,6 +103,17 @@ function Details() {
           <CarouselContainer top='40%'>
             <Carousel>
               {similar.map(movie => (
+                <CarouselItem
+                  image={`${Constants.IMAGE_URL}${movie.poster_path}`}
+                />
+              ))}
+            </Carousel>
+          </CarouselContainer>
+        )}
+        {recommended && (
+          <CarouselContainer top='70%'>
+            <Carousel>
+              {recommended.map(movie => (
                 <CarouselItem
                   image={`${Constants.IMAGE_URL}${movie.poster_path}`}
                 />

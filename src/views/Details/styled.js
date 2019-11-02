@@ -40,6 +40,7 @@ const DetailsContainer = styled.div`
   width: calc(100vw - 240px);
   margin: 90px;
   padding: 30px;
+  /* overflow-y: scroll; */
 
   background-color: white;
 `;
@@ -80,7 +81,7 @@ const CarouselContainer = styled.div`
   position: absolute;
   top: ${props => props.top && props.top};
   height: 200px;
-  width: calc(100% - 80px);
+  width: calc(100% - 65px);
   background: red;
 `;
 
