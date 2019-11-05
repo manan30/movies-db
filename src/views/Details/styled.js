@@ -24,11 +24,19 @@ const BackButton = styled.div`
   left: 24px;
   height: 32px;
   width: 32px;
+  padding: 5px;
+
   color: white;
+  cursor: pointer;
 
   svg {
     height: 100%;
     width: 100%;
+  }
+
+  :hover {
+    background-color: #4e5656;
+    border-radius: 50%;
   }
 `;
 

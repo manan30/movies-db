@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { MdArrowBack } from 'react-icons/md';
 
 import Carousel from '../../components/Carousel';
@@ -23,6 +23,11 @@ function Details() {
   const [movieDetails, setMovieDetails] = useState({});
   const [similar, setSimilar] = useState([]);
   const [recommended, setRecommended] = useState([]);
+  const history = useHistory();
+
+  const handleBackButton = () => {
+    history.goBack();
+  };
 
   useEffect(() => {
     try {
@@ -62,7 +67,7 @@ function Details() {
       <MovieBackdropSection
         image={`${Constants.IMAGE_URL}${movieDetails.backdrop_path}`}
       />
-      <BackButton>
+      <BackButton onClick={handleBackButton}>
         <MdArrowBack />
       </BackButton>
       <DetailsContainer>
