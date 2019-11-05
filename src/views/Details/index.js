@@ -17,10 +17,12 @@ import {
   CarouselItem,
   DetailsColumn
 } from './styled';
+import Reviews from '../../components/Reviews';
 
 function Details() {
   const { id } = useParams();
   const [movieDetails, setMovieDetails] = useState({});
+  const [reviews, setReviews] = useState([]);
   const [similar, setSimilar] = useState([]);
   const [recommended, setRecommended] = useState([]);
   const history = useHistory();
@@ -34,6 +36,17 @@ function Details() {
       (async () => {
         const results = await Get.movieDetails(id);
         setMovieDetails(results.data);
+      })();
+    } catch (e) {
+      console.error({ e });
+    }
+  }, [id]);
+
+  useEffect(() => {
+    try {
+      (async () => {
+        const { data } = await Get.reviews(id);
+        setReviews(data.results);
       })();
     } catch (e) {
       console.error({ e });
@@ -120,6 +133,9 @@ function Details() {
               </Carousel>
             </CarouselContainer>
           )}
+        </DetailsColumn>
+        <DetailsColumn width='25%' scroll>
+          <Reviews reviews={reviews} />
         </DetailsColumn>
       </DetailsContainer>
     </>

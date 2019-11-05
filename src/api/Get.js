@@ -13,6 +13,12 @@ const movieDetails = id => {
   );
 };
 
+const reviews = id => {
+  return axios.get(
+    `${Constants.REQUEST_URL}/movie/${id}/reviews?api_key=${Constants.API_KEY}&language=en-US`
+  );
+};
+
 const similar = id => {
   return axios.get(
     `${Constants.REQUEST_URL}/movie/${id}/similar?api_key=${Constants.API_KEY}&language=en-US`
@@ -25,4 +31,4 @@ const recommended = id => {
   );
 };
 
-export default { movies, movieDetails, similar, recommended };
+export default { movies, movieDetails, similar, recommended, reviews };
