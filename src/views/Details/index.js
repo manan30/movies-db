@@ -12,10 +12,10 @@ import {
   BackButton,
   DetailsContainer,
   MovieImage,
-  TextContainer,
   Text,
   CarouselContainer,
-  CarouselItem
+  CarouselItem,
+  DetailsColumn
 } from './styled';
 
 function Details() {
@@ -66,17 +66,12 @@ function Details() {
         <MdArrowBack />
       </BackButton>
       <DetailsContainer>
-        <MovieImage
-          image={`${Constants.IMAGE_URL}${movieDetails.poster_path}`}
-        />
-        <TextContainer
-          position='absolute'
-          top='180px'
-          height='calc(100% - 236px)'
-          width='180px'
-          padding='20px'
-        />
-        <TextContainer marginLeft='30px' width='calc(100% - 240px)'>
+        <DetailsColumn width='15%'>
+          <MovieImage
+            image={`${Constants.IMAGE_URL}${movieDetails.poster_path}`}
+          />
+        </DetailsColumn>
+        <DetailsColumn width='60%' scroll>
           <Text size='24px' weight='bolder' bottom='10px'>
             {movieDetails.title}
           </Text>
@@ -98,29 +93,29 @@ function Details() {
             </i>
           )}
           <Text width='75%'>{movieDetails.overview}</Text>
-        </TextContainer>
-        {similar && (
-          <CarouselContainer top='40%'>
-            <Carousel>
-              {similar.map(movie => (
-                <CarouselItem
-                  image={`${Constants.IMAGE_URL}${movie.poster_path}`}
-                />
-              ))}
-            </Carousel>
-          </CarouselContainer>
-        )}
-        {recommended && (
-          <CarouselContainer top='70%'>
-            <Carousel>
-              {recommended.map(movie => (
-                <CarouselItem
-                  image={`${Constants.IMAGE_URL}${movie.poster_path}`}
-                />
-              ))}
-            </Carousel>
-          </CarouselContainer>
-        )}
+          {similar && (
+            <CarouselContainer top='40%'>
+              <Carousel>
+                {similar.map(movie => (
+                  <CarouselItem
+                    image={`${Constants.IMAGE_URL}${movie.poster_path}`}
+                  />
+                ))}
+              </Carousel>
+            </CarouselContainer>
+          )}
+          {recommended && (
+            <CarouselContainer top='70%'>
+              <Carousel>
+                {recommended.map(movie => (
+                  <CarouselItem
+                    image={`${Constants.IMAGE_URL}${movie.poster_path}`}
+                  />
+                ))}
+              </Carousel>
+            </CarouselContainer>
+          )}
+        </DetailsColumn>
       </DetailsContainer>
     </>
   );
